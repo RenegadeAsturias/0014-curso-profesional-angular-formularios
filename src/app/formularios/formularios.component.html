@@ -1,2 +1,25 @@
+<br/>
+
+<div class="">
+    <input type="text" placeholder="Nombre" [formControl]="name">
+    <br/>{{name.value}}
+</div>
+
+<hr>
+<div class="">
+    <input type="checkbox" [formControl]="isChecked"/>
+    <br/>{{isChecked.value}}
+</div>
+
+<br/>
+<button [disabled]="name.errors">Enviar</button>
+
+<!--
 <br/><br/>
-<input type="text" placeholder="Nombre" [formControl]="name">
+<hr>
+<pre>
+	<code>
+		{{name | json}}
+	</code>
+</pre>
+-->

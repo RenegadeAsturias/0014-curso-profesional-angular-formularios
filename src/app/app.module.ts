@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { FormulariosComponent } from './formularios/formularios.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Formularios2Component } from './formularios2/formularios2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabeceraComponent,
-    FormulariosComponent
+    FormulariosComponent,
+    Formularios2Component
   ],
   imports: [
     BrowserModule,

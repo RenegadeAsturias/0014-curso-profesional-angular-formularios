@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formularios',
@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class FormulariosComponent {
 
-  name = new FormControl('');
+  name = new FormControl('', [Validators.minLength(4), Validators.required]);
+  isChecked = new FormControl(false);
 
 }
