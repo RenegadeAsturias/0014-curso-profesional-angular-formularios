@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Formularios2Component } from './formularios2/formularios2.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoService } from './todos/todo.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TodoService } from './todos/todo.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
