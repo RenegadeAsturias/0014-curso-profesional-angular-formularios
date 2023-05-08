@@ -7,20 +7,23 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { FormulariosComponent } from './formularios/formularios.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Formularios2Component } from './formularios2/formularios2.component';
+import { TodosComponent } from './todos/todos.component';
+import { TodoService } from './todos/todo.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabeceraComponent,
     FormulariosComponent,
-    Formularios2Component
+    Formularios2Component,
+    TodosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
