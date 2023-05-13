@@ -9,7 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Formularios2Component } from './formularios2/formularios2.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoService } from './todos/todo.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [TodoService],
+  providers: [
+    TodoService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
