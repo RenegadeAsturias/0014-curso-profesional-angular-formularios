@@ -32,6 +32,18 @@ export class TodosComponent implements OnInit {
 			console.log('Posts...:', res);
     });
 
+    // Nos suscribimos al Subject a través del Observable relacionado
+    // posts$ = this.postSource.asObservable();
+    this.todoService.posts$.subscribe((res) => {
+      console.log('Nuevos datos: ', res);
+    });
+
+  }
+
+  // Enviamos nueva información utilizando el Subject
+  // postSource = new Subject();
+  updatePost(){
+    this.todoService.postSource.next('Información!');
   }
 
 }

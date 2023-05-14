@@ -1,10 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
+
+  // Canal de información:
+  postSource = new Subject();
+
+  // Observable, que consumiremos desde los Componentes:
+  posts$ = this.postSource.asObservable();
 
   constructor(private http: HttpClient) {
   }
