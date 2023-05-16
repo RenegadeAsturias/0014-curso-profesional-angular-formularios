@@ -43,7 +43,8 @@ export class TodosComponent implements OnInit {
   // Enviamos nueva información utilizando el Subject
   // postSource = new Subject();
   updatePost(){
-    this.todoService.postSource.next('Información!');
+    // this.todoService.postSource.next('Información!');
+    this.todoService.postSource.next([1,2,3,4,5]);
   }
 
 }
