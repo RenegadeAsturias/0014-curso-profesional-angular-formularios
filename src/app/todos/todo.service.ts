@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +8,18 @@ import { Subject } from 'rxjs';
 export class TodoService {
 
   // Canal de información:
-  postSource = new Subject();
+  postSource = new Subject<number[]>();
 
   // Observable, que consumiremos desde los Componentes:
   posts$ = this.postSource.asObservable();
+
+  // Si queremos también podemos aplicar el pipe con el filtro
+  // a la definición del Observable para que cuando me suscriba ya obtenga los datos filtrados.
+  posts2$ = this.postSource.asObservable().pipe(
+    map((res): number[] => {
+      return res.filter( num => num > 3);
+    })
+  );
 
   constructor(private http: HttpClient) {
   }
@@ -40,5 +48,9 @@ export class TodoService {
     return this.http.post('https://jsonplaceholder.typicode.com/posts', null);
   }
 
+}
+
+function res(this: any, value: number[], index: number): unknown {
+  throw new Error('Function not implemented.');
 }
 
